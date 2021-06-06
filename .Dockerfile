@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM python:3.8-slim-buster
 
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
@@ -11,5 +11,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 ENTRYPOINT [ "python" ]
+
+EXPOSE 5000
 
 CMD [ "app.py" ]
