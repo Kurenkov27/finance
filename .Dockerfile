@@ -2,9 +2,12 @@ FROM python:3.8-slim-buster
 
 COPY requirements.txt app/requirements.txt
 
+RUN mkdir -p /app
 WORKDIR /app
+ENV PYTHONPATH "${PYTHONPATH}:/app"
 
-RUN pip install --upgrade pip && pip install -r requirements.txt
+COPY ./requirements.txt ./
+RUN pip install -r requirements.txt
 
 COPY . .
 
