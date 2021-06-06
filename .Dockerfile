@@ -8,8 +8,6 @@ ENV PYTHONPATH "${PYTHONPATH}:/app"
 
 COPY . .
 
-ENTRYPOINT [ "python" ]
-
 EXPOSE 5000
 
-CMD [ "app.py" ]
+CMD [ "python", "app.py" ]
